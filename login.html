@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login with Microsoft</title>
+</head>
+<body>
+    <h1>Login with Microsoft</h1>
+    <p>Click the button below to log in with your Microsoft account:</p>
+    <button id="loginButton">Login with Microsoft</button>
+
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function () {
+            // Define your Azure AD application's client ID and redirect URI
+            var clientId = 'YOUR_CLIENT_ID';
+            var redirectUri = 'YOUR_REDIRECT_URI';
+
+            // Redirect the user to the Microsoft login page
+            var loginUrl = 'https://login.microsoftonline.com/common/oauth2/authorize?' +
+                'response_type=code&client_id=' + clientId +
+                '&redirect_uri=' + encodeURIComponent(redirectUri) +
+                '&scope=openid%20profile%20email'; // Specify the required scopes
+
+            window.location.href = loginUrl;
+        });
+    </script>
+</body>
+</html>
